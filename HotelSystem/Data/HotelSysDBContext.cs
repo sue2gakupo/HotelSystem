@@ -40,11 +40,6 @@ public partial class HotelSysDBContext : DbContext   //HotelSysDBContext要保�
 
     public virtual DbSet<RoomStatus> RoomStatus { get; set; }
 
-    public virtual DbSet<View_EmployeeWithRole> View_EmployeeWithRole { get; set; }
-
-    public virtual DbSet<View_RoomWithPhotos> View_RoomWithPhotos { get; set; }
-
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -243,16 +238,11 @@ public partial class HotelSysDBContext : DbContext   //HotelSysDBContext要保�
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-    //在類別建立方法
-
-
-    //public async Task<List<object>> getMemberWithTel(string MemberID)   //動態類別object
+    //新增的方法不要寫在原本的HotelSysDBContext裡面，會影響到原本的資料庫內容，新方法可以寫在新的HotelSysDBContext2裡面
+    //public async Task<List<object>> getMemberWithTel(string MemberID)   
     //{
     //    return await this.MemberWithTel.FromSqlRaw($"exec getMemberWithTel {MemberID}").ToListAsync(); //把sql語法的stored procedure寫在C#，讓資料原封不動的傳遞，但是傳入的MemberID要變成變數
-
     //} 
-
-
 
 
 }
